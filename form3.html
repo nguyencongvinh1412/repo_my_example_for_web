@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form3</title>
+
+    <script>
+        function doichu()
+            {
+                var txtB = document.getElementById('txtBefore');
+                var txtA = document.getElementById('txtAfter');
+                var ret = txtB.value + " - " + txtB.value.toUpperCase();
+                txtA.value = ret;
+            }
+
+        function clickReset()
+        {
+            var txtB = document.getElementById('txtBefore');
+            var txtA = document.getElementById('txtAfter');
+            txtB.value = '';
+            txtA.value = '';
+            txtB.focus();
+        }
+    </script>
+</head>
+<body onload="document.getElementById('txtBefore').focus()">
+    <form>
+            <input type="text" id="txtBefore" onblur="doichu()">
+            <input type="text" id="txtAfter">
+            <input type="button" value="Reset" onclick="clickReset()">
+        </form>
+</body>
+</html>

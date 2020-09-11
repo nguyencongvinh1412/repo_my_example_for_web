@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form1</title>
+
+    <script>
+
+        function onLoad()
+        {
+            var objName = document.getElementById('txtName');
+            objName.focus();
+        }
+        function checkTxtName()
+        {
+            var objName = document.getElementById('txtName');
+            if ( objName.value === '')
+            {
+                alert('Vui lòng nhập đủ thông tin vào ô UserName');
+            }
+        }
+
+        function checkTxtPass()
+        {
+            var objPass = document.getElementById('txtPass');
+            var objName = document.getElementById('txtName');
+            if (objPass.value === '' && objName.value !== '')
+            {
+                alert('Vui lòng nhập đủ thông tin vào ô Password');
+            }
+        }
+
+        function clickOK()
+        {
+            var objPass = document.getElementById('txtPass');
+            var objName = document.getElementById('txtName');
+            if ( objPass.value === '' || objName.value === '')
+            {
+                alert('Vui lòng nhập đủ thông tin đăng nhập');
+            }
+            else alert('Đăng nhập thành công');
+        }
+
+        function clickCancel()
+        {
+            var objPass = document.getElementById('txtPass');
+            var objName = document.getElementById('txtName');
+            objPass.value = '';
+            objName.value = '';
+            alert('Hoàn tác đăng nhập');
+        }
+    </script>
+</head>
+<body onload="onLoad()" style="background-color: cornsilk;">
+    <form name="form11">
+        <table style="margin-left: auto;margin-right: auto;border: 1px solid black; background-color: blanchedalmond; padding: 20px;">
+            <caption>Login</caption>
+            <tr>
+                <td>User : </td>
+                <td>
+                    <input type="text" id="txtName" onblur="checkTxtName()">
+                </td>
+            </tr>
+            <tr>
+                <td>Pass : </td>
+                <td>
+                    <input type="text" id="txtPass" onblur="checkTxtPass()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="OK" onclick="clickOK()">
+                </td>
+                <td>
+                    <input type="reset" value="Reset" style="margin-left: 30px;">
+                    <input type="button" value="Cancel" style="margin-left: 30px;"onclick="clickCancel()">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

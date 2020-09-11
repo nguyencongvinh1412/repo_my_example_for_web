@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form5</title>
+
+    <script>
+        function clickSubmit()
+        {
+            var objSelect = document.getElementById('select1');
+            var objInput = document.getElementById('txtInput');
+            objInput.value = objSelect[objSelect.selectedIndex].value;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <select name="selectFirst" id="select1">
+            <option value=""></option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <input type="text" id="txtInput" value="" readonly>
+        <input type="button" value="Submit" onclick="clickSubmit()">
+    </form>
+</body>
+</html>

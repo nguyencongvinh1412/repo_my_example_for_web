@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form2</title>
+
+    <script>
+        function onLoad()
+        {
+            var objMaSV = document.getElementById('txtMaSV');
+            objMaSV.focus();
+        }
+
+        function checkInfo()
+        {
+            var objMaSV = document.getElementById('txtMaSV');
+            var objMale = document.getElementById('Male');
+            var objFemale = document.getElementById('Female');
+            var objHoTen = document.getElementById('txtHoTen');
+            var objTextAreaDiaChi = document.getElementById('txtareaDiaChi');
+            var objNgay = document.getElementById('txtNgay');
+            var objTextAreaQueQuan = document.getElementById('txtareaQueQuan');
+            var objThang = document.getElementById('listThang');
+            var objNam = document.getElementById('listNam');
+            var nam = objNam[objThang.selectedIndex].value;
+
+            var checkNgay = false;
+            if( objMaSV.value === '' || ( objMale.checked === false  && objFemale.checked === false) 
+            || objHoTen.value === '' || objTextAreaDiaChi.value === '' || objNgay.value === '' 
+            || objTextAreaQueQuan.value === '')
+            alert('Vui lòng nhập đủ thông tin sinh viên');
+            else
+            {
+                switch (objThang[objThang.selectedIndex].value) {
+                    case '1':
+                        if( objNgay.value >= '1' && objNgay.value <='31') checkNgay = true;
+                        break;
+                    case '2':
+                        if ((nam % 400 == 0) || (nam % 4 == 0) && (nam % 100 != 0)) 
+                        {
+                            if ( objNgay.value >= '1' && objNam.value <= '29') checkNgay = true;
+                        }
+                        else if ( objNgay.value >= '1' && objNgay.value <= '28') checkNgay = true;
+                        break;
+                    case '3':
+                        if( objNgay.value >= '1' && objNgay.value <= '31') checkNgay = true;
+                        break;
+                    case '4':
+                        if( objNgay.value >= '1' && objNgay.value <= '30') checkNgay = true;
+                        break;
+                    case '5':
+                        if( objNgay.value >= '1' && objNgay.value <= '31') checkNgay = true;
+                        break;
+                    case '6':
+                        if( objNgay.value >= '1' && objNgay.value <= '30') checkNgay = true;
+                        break;
+                    case '7':
+                        if( objNgay.value >= '1' && objNgay.value <= '31') checkNgay = true;
+                        break;
+                    case '8':
+                        if( objNgay.value >= '1' && objNgay.value <= '31') checkNgay = true;
+                        break;
+                    case '9':
+                        if( objNgay.value >= '1' && objNgay.value <= '30') checkNgay = true;
+                        break;
+                    case '10':
+                        if( objNgay.value >= '1' && objNgay.value <= '31') checkNgay = true;
+                        break;
+                    case '11':
+                        if( objNgay.value >= '1' && objNgay.value <= '30') checkNgay = true;
+                        break;
+                    case '12':
+                        if( objNgay.value >= '1' && objNgay.value <= '31') checkNgay = true;
+                        break;
+                    default:
+                        break;
+                }
+                if (checkNgay) alert('Cập nhật thông tin thành công');
+                else alert("Vui lòng nhập thông tin ngày chính xác.");
+            }           
+        }
+
+        function clickExit()
+        {
+            alert("Exit");
+            close();
+        }
+       
+    </script>
+</head>
+
+<body style="background-color: cornsilk;" onload="onLoad()">
+
+   <form>
+    <table style="margin-left: auto; margin-right: auto;border: 1px solid black;background-color: blanchedalmond;">
+        <caption>Thông tin sinh viên</caption>
+        <tr>
+            <td>Ma SV : </td>
+            <td>
+                <input type="text" id="txtMaSV" value="" placeholder="12345....">
+            </td>
+            <td>
+                <label for="Male">Nam </label>
+                <input type="radio" id="Male" name="gender" value="Male">
+            </td>
+            <td>
+                <label for="Female">Nữ </label>
+                <input type="radio" id="Female" name="gender" value="Female">
+            </td>
+        </tr>
+        <tr>
+            <td>HoTen : </td>
+            <td>
+                <input type="text" id="txtHoTen" value="" placeholder="Nguyễn Văn A ...">
+            </td>
+            <td>Dịa chỉ : </td>
+            <td rowspan="2">
+                <textarea cols="10" rows="5" id="txtareaDiaChi" placeholder="Đường - Quận - Thành Phố"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Ngày : </td>
+            <td>
+                <input type="text" id="txtNgay" placeholder="12">
+            </td>
+        </tr>
+        <tr>
+            <td>Tháng : </td>
+            <td>
+                <select aria-selected="true" id="listThang">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </td>
+            <td>Quê quán: </td>
+        </tr>
+        <tr>
+            <td>Năm : </td>
+            <td>
+                <select aria-selected="true" id="listNam">
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000">2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                </select>
+            </td>
+            <td colspan="2">
+                <textarea cols="20" rows="5" id="txtareaQueQuan" placeholder="Thôn - Xã - Huyện - Tỉnh "></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Sở thích: </td>
+            <td>
+                <input type="checkbox" id="chkSport">Sport
+                <input type="checkbox" id="chkShopping">Shopping
+                <input type="checkbox" id="chkAll">All
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Submit" id="btnSubmit" onclick="checkInfo()"></td>
+            <td>
+                <input type="reset" value="Reset" style="margin-left: 50px;" id="btnReset">
+                <input type="button" value="Exit" style="margin-left: 50px;" id="btnExit" onclick="clickExit()">
+            </td>
+        </tr>
+    </table>
+   </form>
+</body>
+</html>
